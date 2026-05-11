@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router';
 import HomePage from './pages/HomePage';
 import QuizPage from './pages/QuizPage';
+import ReadingPage from './pages/ReadingPage';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/quiz/:topicId" element={<QuizPage />} />
+        <Route path="/reading" element={<ReadingPage />} />
       </Routes>
     </div>
   );

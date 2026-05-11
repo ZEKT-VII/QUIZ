@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router';
 import { questions } from '../data/questions';
 import {
@@ -36,6 +36,14 @@ export default function QuizPage() {
   const [showExplanation, setShowExplanation] = useState(false);
   const [quizComplete, setQuizComplete] = useState(false);
   const [shuffledOptions, setShuffledOptions] = useState<number[]>([]);
+  const questionCardRef = useRef<HTMLDivElement>(null);
+
+  // Auto-scroll to center question when navigating or submitting
+  useEffect(() => {
+    if (questionCardRef.current) {
+      questionCardRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }, [currentIndex, showExplanation]);
 
   const currentQuestion = topicQuestions[currentIndex];
   const totalQuestions = topicQuestions.length;
@@ -258,7 +266,7 @@ export default function QuizPage() {
         </div>
 
         {/* Question Card */}
-        <div className="quiz-card">
+        <div className="quiz-card" ref={questionCardRef}>
           {/* Topic & Subtopic */}
           <div className="flex items-center gap-2 mb-4">
             <span className="text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded">

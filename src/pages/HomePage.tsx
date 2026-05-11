@@ -113,11 +113,11 @@ export default function HomePage() {
           ))}
         </div>
 
-        {/* All Topics Quiz */}
-        <div className="mt-8">
+        {/* All Topics Quiz & Reading Mode */}
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
           <button
             onClick={() => navigate('/quiz/0')}
-            className="w-full bg-primary/10 border border-primary/30 rounded-xl p-6 text-left hover:bg-primary/20 transition-all duration-200 group"
+            className="bg-primary/10 border border-primary/30 rounded-xl p-6 text-left hover:bg-primary/20 transition-all duration-200 group"
           >
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-4">
@@ -130,6 +130,24 @@ export default function HomePage() {
                 </div>
               </div>
               <ArrowRight className="w-6 h-6 text-primary group-hover:translate-x-1 transition-transform" />
+            </div>
+          </button>
+
+          <button
+            onClick={() => navigate('/reading')}
+            className="bg-secondary/50 border border-border rounded-xl p-6 text-left hover:bg-secondary transition-all duration-200 group"
+          >
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-4">
+                <div className="p-3 rounded-lg bg-secondary text-foreground">
+                  <BookOpen className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-lg">Reading Mode</h3>
+                  <p className="text-sm text-muted-foreground">Browse all questions with answers & explanations</p>
+                </div>
+              </div>
+              <ArrowRight className="w-6 h-6 text-muted-foreground group-hover:translate-x-1 transition-transform" />
             </div>
           </button>
         </div>
