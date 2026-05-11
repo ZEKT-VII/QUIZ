@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 4%;
+    --foreground: 210 20% 96%;
+    --card: 220 15% 8%;
+    --card-foreground: 210 20% 96%;
+    --popover: 220 15% 6%;
+    --popover-foreground: 210 20% 96%;
+    --primary: 210 100% 56%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 10% 14%;
+    --secondary-foreground: 210 20% 96%;
+    --muted: 220 10% 18%;
+    --muted-foreground: 210 10% 60%;
+    --accent: 210 100% 56%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 10% 20%;
+    --input: 220 10% 16%;
+    --ring: 210 100% 56%;
+    --radius: 0.625rem;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+}
+
+@layer components {
+  .quiz-card {
+    @apply bg-card border border-border rounded-xl p-6 mb-6 shadow-lg;
+  }
+
+  .option-btn {
+    @apply w-full text-left p-4 rounded-lg border border-border bg-secondary/50 
+           hover:bg-primary/20 hover:border-primary/50 transition-all duration-200 
+           cursor-pointer mb-3 flex items-center gap-3;
+  }
+
+  .option-btn:hover {
+    @apply transform scale-[1.01];
+  }
+
+  .option-selected {
+    @apply bg-primary/30 border-primary;
+  }
+
+  .option-correct {
+    @apply bg-green-500/20 border-green-500;
+  }
+
+  .option-incorrect {
+    @apply bg-red-500/20 border-red-500;
+  }
+
+  .explanation-box {
+    @apply mt-4 p-4 rounded-lg border;
+  }
+
+  .explanation-correct {
+    @apply bg-green-500/10 border-green-500/30;
+  }
+
+  .explanation-incorrect {
+    @apply bg-red-500/10 border-red-500/30;
+  }
+
+  .topic-card {
+    @apply bg-secondary/50 border border-border rounded-xl p-5 
+           hover:bg-primary/10 hover:border-primary/40 transition-all duration-200 
+           cursor-pointer;
+  }
+
+  .progress-bar {
+    @apply h-2 bg-secondary rounded-full overflow-hidden;
+  }
+
+  .progress-fill {
+    @apply h-full bg-primary rounded-full transition-all duration-300;
+  }
+
+  .score-circle {
+    @apply w-24 h-24 rounded-full flex items-center justify-center text-2xl font-bold;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium 
+           hover:bg-primary/90 transition-all duration-200 cursor-pointer;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-secondary text-secondary-foreground rounded-lg font-medium 
+           hover:bg-secondary/80 transition-all duration-200 cursor-pointer;
+  }
+
+  .sub-badge {
+    @apply inline-block px-2 py-0.5 text-xs rounded-full bg-primary/20 text-primary;
+  }
+
+  .math-sub {
+    @apply text-sm align-sub opacity-80;
+  }
+
+  .math-sup {
+    @apply text-sm align-super opacity-80;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: hsl(var(--secondary));
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 3px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+  }
+}
