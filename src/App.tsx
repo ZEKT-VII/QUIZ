@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router';
+import { Analytics } from '@vercel/analytics/react';
 import HomePage from './pages/HomePage';
 import QuizPage from './pages/QuizPage';
 import ReadingPage from './pages/ReadingPage';
@@ -11,6 +12,7 @@ function App() {
         <Route path="/quiz/:topicId" element={<QuizPage />} />
         <Route path="/reading" element={<ReadingPage />} />
       </Routes>
+      <Analytics />
     </div>
   );
 }
