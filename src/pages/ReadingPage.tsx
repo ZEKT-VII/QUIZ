@@ -1,13 +1,13 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useNavigate } from 'react-router';
-import { questions } from '../data/questions';
+import { questions, type Question } from '../data/questions';
 import { ArrowLeft, BookOpen, CheckCircle2, Info } from 'lucide-react';
 
 const BATCH_SIZE = 15;
 
 export default function ReadingPage() {
   const navigate = useNavigate();
-  const [displayQuestions, setDisplayQuestions] = useState<typeof questions>([]);
+  const [displayQuestions, setDisplayQuestions] = useState<readonly Question[]>([]);
   const [loadedCount, setLoadedCount] = useState(BATCH_SIZE);
   const observerTarget = useRef<HTMLDivElement>(null);
 
